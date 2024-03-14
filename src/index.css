@@ -1,26 +1,36 @@
-@layer base, components, utilities;
+@layer normalize, variables, base, layout, components, utilities, overrides;
+
+@import "~normalize.css/normalize.css" layer(normalize);
+
+@layer variables {
+  :root {
+    --colors-dark: #303846;
+    --colors-highlight: #dea242;
+  }
+}
 
 @layer base {
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
   }
 
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-      monospace;
+  body {
+    background-color: var(--colors-dark);
+  }
+
+  :is(h1, h2, h3, h4, h5, h6) {
+    line-height: 1;
+    margin: 0;
   }
 }
 
 @layer utilities {
   .container {
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px;
+    width: 100%;
   }
 
   .font-comic-neue {
@@ -30,20 +40,106 @@
   .font-bold {
     font-weight: bold;
   }
+
+  .font-lg {
+    font-size: 6rem;
+  }
+
+  .font-xl {
+    font-size: 8rem;
+  }
+
+  .title-indent {
+    text-indent: -6rem;
+    padding-left: 6rem;
+  }
+
+  .intro {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@layer layout {
+  .layout {
+    height: 100lvh;
+    display: grid;
+    grid-template-rows:
+      [main] auto
+      [footer] 4rem;
+    grid-template-columns:
+      [fullbleed-start] 1rem [side-menu] minmax(20rem, calc(100% / 6))
+      [main-start] auto [main-end] 1rem [fullbleed-end];
+  }
+
+  .layout > * {
+    display: grid;
+    grid: subgrid / subgrid;
+  }
+
+  .header {
+    align-items: center;
+    grid-area: main / main-start;
+    grid-template-rows: auto;
+  }
+
+  .side-nav {
+    grid-area: main / side-menu;
+  }
+}
+
+@layer components {
+  .header {
+    h1 {
+      color: var(--colors-highlight);
+      line-height: 0.8;
+
+      span {
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      span:first-child {
+        background-image: linear-gradient(-45deg, #b15235, #feab3a);
+      }
+
+      span:nth-child(2) {
+        background-image: linear-gradient(-45deg, #76d08b, #34bb1c);
+      }
+
+      span:nth-child(3) {
+        background-image: linear-gradient(-45deg, #ebb1ee, #c46aab);
+      }
+    }
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .logo {
-    animation: spin infinite 20s linear;
+  .animate-intro {
+    animation: intro infinite 20s ease-out alternate;
+  }
+
+  .animate-random-color {
+    animation: randomColor 2s infinite ease-in-out;
   }
 }
 
-@keyframes spin {
+@keyframes randomColor {
   from {
-    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
   }
 
   to {
-    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes intro {
+  from {
+    transform: rotate(0deg) translateX(0) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(100%) scale(0.5);
   }
 }
