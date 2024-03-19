@@ -8,9 +8,11 @@
     font-family: "Comic Neue";
     font-style: normal;
     font-weight: bold;
-    src: local("Comic Neue Bold"), local("ComicNeue-Bold"),
-      url("./fonts/ComicNeue-Bold.woff2") format("woff2"),
-      url("./fonts/ComicNeue-Bold.woff") format("woff");
+    src:
+      local("Comic Neue Bold"),
+      local("ComicNeue-Bold"),
+      url("/fonts/ComicNeue-Bold.woff2") format("woff2"),
+      url("/fonts/ComicNeue-Bold.woff") format("woff");
   }
 
   @font-face {
@@ -18,9 +20,11 @@
     font-family: "Comic Neue";
     font-style: normal;
     font-weight: normal;
-    src: local("Comic Neue Regular"), local("ComicNeue-Regular"),
-      url("./fonts/ComicNeue-Regular.woff2") format("woff2"),
-      url("./fonts/ComicNeue-Regular.woff") format("woff");
+    src:
+      local("Comic Neue Regular"),
+      local("ComicNeue-Regular"),
+      url("/fonts/ComicNeue-Regular.woff2") format("woff2"),
+      url("/fonts/ComicNeue-Regular.woff") format("woff");
   }
 
   html {
