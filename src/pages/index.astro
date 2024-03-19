@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HueRotateText from "../components/HueRotateText.astro";
+---
+
+<Layout title="HD's Round Table: Latest CSS Features Intro">
+  <main class="container flex flex-wrap items-start justify-center pt-[32lvh]">
+    <h1 class="font-display text-5xl lg:text-6xl -indent-4 pl-4 leading-[0.5]">
+      <HueRotateText className="font-bold" color="#b15235">C</HueRotateText
+      ><HueRotateText className="font-bold" color="#329b4b">S</HueRotateText
+      ><HueRotateText className="font-bold" color="#9d2da3">S</HueRotateText>
+      <span class="text-3xl lg:text-4xl text-sky-500">is</span>
+      <br /><em
+        class="text-6xl lg:text-7xl drop-shadow-glow animate-pulse text-orange-400"
+        >awesome!</em
+      >
+    </h1>
+    <img
+      class="animate-rotate-scale-translate"
+      alt="A shocked monkey puppet."
+      src="/img/logo192.png"
+    />
+  </main>
+</Layout>

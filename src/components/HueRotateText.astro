@@ -1,0 +1,15 @@
+---
+interface Props {
+  className?: string;
+  color: string;
+}
+
+const { className, color } = Astro.props;
+---
+
+<span
+  class:list={[
+    "animate-hue-rotate bg-clip-text text-transparent bg-[--color]",
+    className,
+  ]}><slot /></span
+><style define:vars={{ color }}></style>
