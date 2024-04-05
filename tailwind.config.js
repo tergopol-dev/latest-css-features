@@ -5,6 +5,9 @@ export default {
     container: {
       center: true,
       padding: "1rem",
+      screens: {
+        lg: "1024px",
+      },
     },
     extend: {
       animation: {
