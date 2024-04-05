@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
 import HueRotateText from "../components/HueRotateText.astro";
 import localShockedMonkeyImage from "../img/shocked-monkey-192.png";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout
@@ -10,16 +10,39 @@ import localShockedMonkeyImage from "../img/shocked-monkey-192.png";
   title="HD's Round Table: Latest CSS Features Intro"
 >
   <main class="container flex flex-wrap items-start justify-center pt-[32lvh]">
-    <h1 class="font-display text-5xl lg:text-6xl -indent-4 pl-4 leading-[0.5]">
-      <HueRotateText className="font-bold bg-red-600">C</HueRotateText
-      ><HueRotateText className="font-bold bg-sky-500">S</HueRotateText
-      ><HueRotateText className="font-bold bg-orange-400">S</HueRotateText>
-      <span class="text-3xl lg:text-4xl text-sky-500">is</span>
-      <br /><em
-        class="text-6xl lg:text-7xl drop-shadow-glow motion-safe:animate-pulse text-orange-400"
-        >awesome!</em
+    <div>
+      <h1
+        class="font-display text-5xl lg:text-6xl -indent-4 pl-4 leading-[0.5]"
       >
-    </h1>
+        <HueRotateText className="font-bold bg-red-600">C</HueRotateText
+        ><HueRotateText className="font-bold bg-sky-500">S</HueRotateText
+        ><HueRotateText className="font-bold bg-orange-400">S</HueRotateText>
+        <span class="text-3xl lg:text-4xl text-sky-500">is</span>
+        <br /><em
+          class="text-6xl lg:text-7xl drop-shadow-glow motion-safe:animate-pulse text-orange-400"
+          >awesome!</em
+        >
+      </h1>
+      <a class="pl-6 font-display flex gap-1.5 items-center" href="/subgrid"
+        >Let's go! <svg
+          class="h-4 w-4 animate-hue-rotate text-sky-500 hover:text-sky-600 transition-colors duration-300 ease-in-out"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          fill="currentColor"
+        >
+          <g>
+            <path
+              transform="matrix(2.81 0 0 2.81 1.407 1.407)"
+              d="M90 45 55.07 4.97 40.76 17.45 64.8 45 40.76 72.55l14.31 12.48z"
+            ></path>
+            <path
+              transform="matrix(2.81 0 0 2.81 1.407 1.407)"
+              d="M49.24 45 14.31 4.97 0 17.45 24.04 45 0 72.55l14.31 12.48z"
+            ></path>
+          </g>
+        </svg></a
+      >
+    </div>
     <Image
       class="motion-safe:animate-rotate-scale-translate"
       alt="A shocked monkey puppet."
