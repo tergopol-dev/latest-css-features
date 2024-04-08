@@ -1,5 +1,6 @@
 ---
 import "../styles/base.css";
+import "highlight.js/styles/vs2015.min.css";
 
 interface Props {
   bodyClassName?: string;
@@ -14,7 +15,12 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
+<script>
+  import hljs from "highlight.js";
+
+  hljs.highlightAll();
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,7 +33,21 @@ const {
   </head>
   <body
     class:list={[
-      "bg-slate-100 dark:bg-slate-800 prose-p:text-slate-600 dark:prose-p:text-slate-400 dark:prose-invert prose-headings:text-slate-400 dark:prose-headings:text-slate-300 prose-code:text-amber-600 prose-code:font-normal prose-code:px-1.5 prose-code:py-1 prose-code:bg-slate-500 prose-code:bg-opacity-15 prose-code:rounded",
+      "bg-slate-100 dark:bg-slate-800",
+      [
+        "prose-p:text-slate-600",
+        "dark:prose-p:text-slate-400",
+        "dark:prose-invert",
+        "prose-headings:text-slate-400",
+        "dark:prose-headings:text-slate-300",
+        "prose-code:text-indigo-500",
+        "prose-code:font-normal",
+        "prose-code:px-1.5",
+        "prose-code:py-1",
+        "prose-code:bg-slate-500",
+        "prose-code:bg-opacity-15",
+        "prose-code:rounded",
+      ],
       bodyClassName,
     ]}
   >

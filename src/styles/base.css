@@ -26,4 +26,21 @@
       url("/fonts/ComicNeue-Regular.woff2") format("woff2"),
       url("/fonts/ComicNeue-Regular.woff") format("woff");
   }
+
+  code.not-prose {
+    @apply text-sm;
+    @apply leading-loose;
+    @apply opacity-0;
+    @apply transition-opacity;
+    @apply ease-in-out;
+  }
+}
+
+@layer utilities {
+  code.hljs {
+    background-color: theme("backgroundColor.transparent") !important;
+    font-size: theme("fontSize.sm");
+    opacity: theme("opacity.100");
+    padding: theme("padding.0") !important;
+  }
 }
