@@ -43,6 +43,18 @@ export default {
           },
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            "code::before": {
+              content: "normal",
+            },
+            "code::after": {
+              content: "normal",
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

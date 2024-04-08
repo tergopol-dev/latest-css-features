@@ -1,6 +1,11 @@
 {
   "type": "module",
   "version": "0.0.1",
+  "name": "latest-css-features",
+  "author": "Javier Ramirez",
+  "license": "MIT",
+  "description": "Presentation showcasing the latest CSS features introduced in 2023 and early 2024, aimed at enhancing developers' proficiency in modern web design.",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

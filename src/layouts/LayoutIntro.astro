@@ -25,14 +25,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body
-    class:list={[
-      "bg-slate-100 dark:bg-slate-800 prose-p:text-slate-600 dark:prose-p:text-slate-400 dark:prose-invert prose-headings:text-slate-400 dark:prose-headings:text-slate-300 prose-code:text-amber-600 prose-code:font-normal prose-code:px-1.5 prose-code:py-1 prose-code:bg-slate-500 prose-code:bg-opacity-15 prose-code:rounded",
-      bodyClassName,
-    ]}
-  >
-    <main class="container pt-16 lg:pt-24 prose lg:prose-lg">
-      <slot />
-    </main>
+  <body class:list={[bodyClassName]}>
+    <slot />
   </body>
 </html>
