@@ -15,11 +15,8 @@ export default {
         "rotate-scale-translate":
           "rotate-scale-translate 2.5s infinite alternate cubic-bezier(0.25, 0.6, 0.8, 1)",
       },
-      colors: {
-        cinder: "#13151a",
-      },
-      dropShadow: {
-        glow: ["0 0px 4px theme(colors.orange.700)"],
+      backgroundImage: {
+        noise: `url("data:image/svg+xml,%3Csvg viewBox='0 0 1080 1080' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='fractalNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch' /%3E%3C/filter%3E%3Cfilter id='grayscale'%3E%3CfeColorMatrix type='matrix' values='0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 1 0 ' /%3E%3C/filter%3E%3C/defs%3E%3Crect width='100%25' height='100%25' filter='url(%23fractalNoise) url(%23grayscale)' /%3E%3C/svg%3E")`,
       },
       fontFamily: {
         display: ["Comic Neue", "sans-serif"],

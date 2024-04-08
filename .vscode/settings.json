@@ -1,3 +1,9 @@
 {
-  "tailwindCSS.classAttributes": ["class", "className", "ngClass", "class:list"]
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    "class:list",
+    "bodyClassName"
+  ]
 }
