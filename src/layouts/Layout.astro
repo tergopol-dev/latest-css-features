@@ -1,16 +1,21 @@
 ---
 import "../styles/base.css";
 import "highlight.js/styles/vs2015.min.css";
+import MainNav, {
+  type Props as MainNavProps,
+} from "../components/MainNav.astro";
 
 interface Props {
   bodyClassName?: string;
   description?: string;
+  mainNavConfiguration?: MainNavProps;
   title: string;
 }
 
 const {
   bodyClassName,
   description = "Presentation showcasing the latest CSS features introduced in 2023 and early 2024, aimed at enhancing developers' proficiency in modern web design.",
+  mainNavConfiguration,
   title = "HD's Round Table: Latest CSS Features",
 } = Astro.props;
 ---
@@ -52,6 +57,9 @@ const {
       bodyClassName,
     ]}
   >
+    <header class="sticky top-0">
+      <MainNav {...mainNavConfiguration} />
+    </header>
     <main class="container pt-16 lg:pt-24 prose lg:prose-lg">
       <slot />
     </main>

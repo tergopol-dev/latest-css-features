@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import localShockedMonkeyImage from "../img/shocked-monkey-192.png";
+
+export interface Props {
+  isBackLink?: boolean;
+  linkSource?: string;
+  linkTitle?: string;
+}
+
+const { isBackLink, linkSource, linkTitle } = Astro.props;
+---
+
+<nav
+  class="bg-slate-200 bg-opacity-50 dark:bg-slate-700 dark:bg-opacity-20 text-slate-100 dark:text-slate-300 backdrop-blur-sm"
+>
+  <div class="container p-4 flex items-center">
+    <a href="/" aria-label="Navigate to the home page"
+      ><Image
+        class="w-10 h-10"
+        alt="A shocked monkey puppet."
+        loading="eager"
+        src={localShockedMonkeyImage}
+      /></a
+    >
+    {
+      linkSource && linkTitle && (
+        <a
+          class="ml-auto font-semibold text-sm flex items-center gap-1 text-slate-500 dark:text-slate-300"
+          href={linkSource}
+        >
+          <span>{linkTitle}</span>
+          <svg
+            class:list={[
+              "h-2 w-2 mt-0.5",
+              {
+                "order-first": isBackLink,
+                "rotate-180": isBackLink,
+              },
+            ]}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 256 256"
+            fill="currentColor"
+          >
+            <g>
+              <path
+                transform="matrix(2.81 0 0 2.81 1.407 1.407)"
+                d="M90 45 55.07 4.97 40.76 17.45 64.8 45 40.76 72.55l14.31 12.48z"
+              />
+              <path
+                transform="matrix(2.81 0 0 2.81 1.407 1.407)"
+                d="M49.24 45 14.31 4.97 0 17.45 24.04 45 0 72.55l14.31 12.48z"
+              />
+            </g>
+          </svg>
+        </a>
+      )
+    }
+  </div>
+</nav>
