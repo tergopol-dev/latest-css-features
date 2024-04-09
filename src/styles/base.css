@@ -28,7 +28,6 @@
   }
 
   code.not-prose {
-    @apply text-sm;
     @apply leading-loose;
     @apply opacity-0;
     @apply transition-opacity;
@@ -40,7 +39,6 @@
 @layer utilities {
   code.hljs {
     background-color: theme("backgroundColor.transparent") !important;
-    font-size: theme("fontSize.sm");
     opacity: theme("opacity.100");
     padding: theme("padding.0") !important;
   }
