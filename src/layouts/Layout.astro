@@ -60,7 +60,10 @@ const {
     <header class="sticky top-0">
       <MainNav {...mainNavConfiguration} />
     </header>
-    <main class="container pt-16 lg:pt-24 prose lg:prose-lg">
+    <main
+      class="container pt-16 lg:pt-24 prose lg:prose-lg"
+      style={{ "view-transition-name": "main" }}
+    >
       <slot />
     </main>
   </body>
