@@ -40,11 +40,14 @@ const {
     class:list={[
       "bg-slate-100 dark:bg-slate-800",
       [
+        "prose-headings:font-light",
         "prose-headings:text-slate-400",
         "dark:prose-headings:text-slate-300",
         "prose-p:text-slate-600",
         "dark:prose-p:text-slate-400",
-        "dark:prose-pre:bg-gray-900",
+        "prose-a:text-slate-500",
+        "prose-a:no-underline",
+        "dark:prose-a:text-slate-400",
         "prose-code:bg-opacity-15",
         "prose-code:bg-slate-500",
         "prose-code:font-normal",
@@ -53,11 +56,12 @@ const {
         "prose-code:rounded",
         "prose-code:text-rose-500",
         "dark:prose-code:text-amber-500",
+        "dark:prose-pre:bg-gray-900",
       ],
       bodyClassName,
     ]}
   >
-    <header class="sticky top-0">
+    <header class="sticky top-0 z-10">
       <MainNav {...mainNavConfiguration} />
     </header>
     <main class="pt-16 lg:pt-24" style={{ "view-transition-name": "main" }}>
