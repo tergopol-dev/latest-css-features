@@ -10,8 +10,8 @@ import localContainerQueriesImage from "../../img/container-queries.svg";
     linkTitle: "Example",
   }}
 >
-  <section class="container pb-4 prose lg:prose-lg">
-    <h1 class="text-4xl">Container Queries</h1>
+  <section class="container prose lg:prose-lg">
+    <h1 class="text-4xl">Container <em>Size</em> Queries</h1>
     <p>
       CSS container queries allow you to write styles that apply to the children
       of a container element when that container matches certain media
@@ -31,5 +31,28 @@ import localContainerQueriesImage from "../../img/container-queries.svg";
       src={localContainerQueriesImage.src}
       alt="Container queries comparison against media queries"
     />
+  </section>
+  <section class="container mt-4 lg:mt-8 pb-8 lg:pb-12 prose lg:prose-lg">
+    <h1 class="text-4xl">Container <em>Style</em> Queries</h1>
+    <p>
+      CSS container queries allow you to write styles that apply to the children
+      of a container element when that container matches certain media
+      conditions, typically a width measurement.
+    </p>
+    <p>
+      Style queries enable applying styles to elements based on a containing
+      element's style features. Any non-empty element can be a style query
+      container. Currently, the only style feature supported by style queries is
+      CSS <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"
+        rel="noopener noreferrer"
+        target="_blank">custom properties</a
+      >. In this case, the query returns true or false depending on the computed
+      value of the containing element's custom properties. When container style
+      queries are fully supported, they will enable you to apply styles to any
+      element's descendants based on any property, declaration, or computed
+      value — for example if the container is <code>display: flex;</code> or has
+      a non-transparent background color.
+    </p>
   </section>
 </Layout>
