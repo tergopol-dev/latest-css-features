@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import localContainerQueriesImage from "../../img/container-queries.svg";
+---
+
+<Layout
+  title="HD's Round Table: Container Queries"
+  mainNavConfiguration={{
+    linkSource: "/container-queries/example",
+    linkTitle: "Example",
+  }}
+>
+  <section class="container pb-4 prose lg:prose-lg">
+    <h1 class="text-4xl">Container Queries</h1>
+    <p>
+      CSS container queries allow you to write styles that apply to the children
+      of a container element when that container matches certain media
+      conditions, typically a width measurement.
+    </p>
+    <p>
+      If, for example, a container has less space available in the surrounding
+      context, you can hide certain elements or use smaller fonts. Container
+      queries are an alternative to <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries"
+        rel="noopener noreferrer"
+        target="_blank">media queries</a
+      >, which apply styles to elements based on viewport size or other device
+      characteristics.
+    </p>
+    <img
+      src={localContainerQueriesImage.src}
+      alt="Container queries comparison against media queries"
+    />
+  </section>
+</Layout>
