@@ -57,6 +57,9 @@ const { isBackLink, linkSource, linkTitle } = Astro.props;
         </a>
       )
     }
-    <ThemeSelector className="justify-self-end col-start-3" client:only />
+    <ThemeSelector
+      className="justify-self-end col-start-3"
+      client:only="preact"
+    />
   </div>
 </nav>
