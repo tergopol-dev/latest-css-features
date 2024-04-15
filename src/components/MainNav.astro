@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import localShockedMonkeyImage from "../img/shocked-monkey-192.png";
+import ThemeSelector from "./ThemeSelector";
 
 export interface Props {
   isBackLink?: boolean;
@@ -14,7 +15,7 @@ const { isBackLink, linkSource, linkTitle } = Astro.props;
 <nav
   class="bg-slate-200 bg-opacity-50 dark:bg-slate-700 dark:bg-opacity-20 text-slate-100 dark:text-slate-300 backdrop-blur-sm"
 >
-  <div class="container p-4 flex items-center">
+  <div class="container p-4 grid grid-cols-3 items-center gap-2 lg:gap-4">
     <a href="/table-of-contents" aria-label="Navigate to the home page"
       ><Image
         class="w-10 h-10"
@@ -26,7 +27,7 @@ const { isBackLink, linkSource, linkTitle } = Astro.props;
     {
       linkSource && linkTitle && (
         <a
-          class="ml-auto font-semibold text-sm flex items-center gap-1 text-slate-500 dark:text-slate-300"
+          class="font-semibold text-sm flex items-center justify-self-center gap-1 text-slate-500 dark:text-slate-300"
           href={linkSource}
         >
           <span>{linkTitle}</span>
@@ -56,5 +57,6 @@ const { isBackLink, linkSource, linkTitle } = Astro.props;
         </a>
       )
     }
+    <ThemeSelector className="justify-self-end col-start-3" client:only />
   </div>
 </nav>
