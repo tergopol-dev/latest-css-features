@@ -1,0 +1,31 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  title="HD's Round Table: Cascade Layers"
+  mainNavConfiguration={{
+    linkSource: "/cascade-layers/example",
+    linkTitle: "Example",
+  }}
+>
+  <section class="container prose lg:prose-lg">
+    <h1 class="text-4xl">Cascade Layers</h1>
+    <p>
+      CSS specificity is the mechanism by which CSS determines which styles to
+      apply to elements. The specificity of a style rule is determined by the
+      selectors used. For instance, elements have lower specificity compared to
+      classes or attributes, which in turn have lower specificity compared to
+      IDs. Understanding CSS specificity is fundamental to mastering CSS.
+    </p>
+    <p>
+      Cascade Layers in CSS (using the <code>@layer</code> CSS rule) provide a powerful
+      syntax that influences the styling hierarchy of a set of styles. Layers can
+      be named and ordered (if not explicitly ordered, they follow the source order).
+      Styles in higher layers always take precedence over styles in lower layers,
+      regardless of selector specificity. Styles outside of layers have the highest
+      priority. This system introduces a new layer to the CSS cascade. With layered
+      styles, the precedence of a layer always supersedes the specificity of a selector.
+    </p>
+  </section>
+</Layout>
