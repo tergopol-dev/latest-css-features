@@ -12,8 +12,14 @@ import Layout from "../../layouts/Layout.astro";
       <li><a href="/has-selector">The <code>:has()</code> Selector</a></li>
       <li><a href="/nesting">CSS Nesting</a></li>
     </ol>
-    <h2>Bonus Content</h2>
-    <ul>
+    <h2 class="cursor-wait select-none">
+      <span class="line-through opacity-15">Bonus Content</span>
+      <span class="text-lg italic motion-safe:animate-pulse"
+        >(Coming Soon!)</span
+      >
+      🐒
+    </h2>
+    <ul class="opacity-15 pointer-events-none select-none">
       <li><a href="/view-transitions-api">View Transitions API</a></li>
       <li><a href="/scoping">CSS Scoping</a></li>
       <li>
