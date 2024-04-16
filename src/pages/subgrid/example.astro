@@ -16,18 +16,25 @@ import Layout from "../../layouts/Layout.astro";
     <h1 class="text-4xl !mb-0">Subgrid Example</h1>
     <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
     <div class="prose grid lg:row-start-2">
-      <pre><p>CSS</p><code is:raw>.subgrid {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
+      <pre><p>CSS</p><code is:raw>.card-container-subgrid-example {
+    display: grid;
+    gap: theme("gap.4");
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-subgrid-example {
+    display: grid;
+    gap: theme("gap.5");
+    grid-row: span 3;
+    grid-template-rows: subgrid;
 }</code></pre>
       <pre
-        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;section class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:row-start-2"&gt;
-  &lt;div class="card-subgrid-example p-6 bg-slate-200 dark:bg-slate-700 grid grid-rows-subgrid row-span-3 gap-4"&gt;
-    &lt;p class="font-semibold !text-cyan-500 border-b border-b-slate-500 border-opacity-25 pb-2"&gt;
+        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;section class="card-container-subgrid-example"&gt;
+  &lt;div class="card-subgrid-example"&gt;
+    &lt;p&gt;
       Lorem Ipsum
     &lt;/p&gt;
-    &lt;div class="text-sm dark:[&&gt;p]:text-slate-300 border-b border-b-slate-500 border-opacity-25 pb-2"&gt;
+    &lt;div&gt;
       &lt;p&gt;
         Nam nec vestibulum ex. Phasellus augue nibh, accumsan vel
         iaculis eu, fermentum nec urna. Sed in enim egestas, auctor
@@ -39,20 +46,17 @@ import Layout from "../../layouts/Layout.astro";
         eleifend arcu interdum.
       &lt;/p&gt;
     &lt;/div&gt;
-    &lt;button
-      class="rounded bg-slate-300 text-slate-500 dark:text-slate-700 p-2 text-xs font-bold"
-      type="button"
-    &gt;
-      CTA Button
-    &lt;/button&gt;
+    &lt;button type="button"&gt;CTA Button&lt;/button&gt;
   &lt;/div&gt;
 &lt;/section&gt;</code></pre>
     </div>
-    <section class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:row-start-2">
+    <section
+      class="card-container-subgrid-example lg:!grid-cols-3 lg:row-start-2"
+    >
       {
         [...Array(6)].map((_, index) => {
           return (
-            <div class="card-subgrid-example p-6 bg-slate-200 dark:bg-slate-700 grid grid-rows-subgrid row-span-3 gap-4">
+            <div class="card-subgrid-example p-6 bg-slate-200 dark:bg-slate-700">
               <p class="font-semibold !text-cyan-500 border-b border-b-slate-500 border-opacity-25 pb-2">
                 {index + 1}. Lorem Ipsum
               </p>
@@ -83,3 +87,18 @@ import Layout from "../../layouts/Layout.astro";
     </section>
   </div>
 </Layout>
+
+<style>
+  .card-container-subgrid-example {
+    display: grid;
+    gap: theme("gap.4");
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .card-subgrid-example {
+    display: grid;
+    gap: theme("gap.5");
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+  }
+</style>
