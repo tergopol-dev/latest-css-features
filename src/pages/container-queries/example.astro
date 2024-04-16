@@ -190,6 +190,53 @@ import Layout from "../../layouts/Layout.astro";
       </div>
     </section>
   </div>
+  <div class="px-4 max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-12">
+    <h1 class="text-4xl !mb-0">Container Queries Length Units Example</h1>
+    <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
+    <div class="prose grid lg:row-start-2">
+      <pre><p>CSS</p><code class="language-css" is:raw>  .container-units-example {
+    container: container-units-example / inline-size;
+  }
+
+  @container container-units-example (min-inline-size: 200px) {
+    .card-example__title {
+      font-size: max(1.5rem, 5cqi);
+    }
+
+    .card-example__content {
+      font-size: max(1rem, 2.5cqi);
+    }
+}</code></pre>
+      <pre
+        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div class="container-units-example"&gt;
+  &lt;div
+    class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+  &gt;
+    &lt;p class="card-example__title font-semibold text-amber-500"&gt;
+      Lorem Ipsum
+    &lt;/p&gt;
+    &lt;p class="card-example__content text-slate-400"&gt;
+      Donec finibus nunc eu faucibus condimentum. Phasellus lobortis, tellus sit amet aliquam bibendum
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <section class="lg:row-start-2">
+      <div class="container-units-example">
+        <div
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+        >
+          <p class="card-example__title font-semibold text-amber-500">
+            Lorem Ipsum
+          </p>
+          <p class="card-example__content text-slate-400">
+            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
+            tellus sit amet aliquam bibendum.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
 </Layout>
 
 <style>
@@ -249,6 +296,22 @@ import Layout from "../../layouts/Layout.astro";
       .card-example__content {
         font-weight: theme("fontWeight.light");
       }
+    }
+  }
+</style>
+
+<style>
+  .container-units-example {
+    container: container-units-example / inline-size;
+  }
+
+  @container container-units-example (min-inline-size: 200px) {
+    .card-example__title {
+      font-size: max(1.5rem, 5cqi);
+    }
+
+    .card-example__content {
+      font-size: max(1rem, 2.5cqi);
     }
   }
 </style>
