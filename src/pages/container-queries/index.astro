@@ -10,49 +10,90 @@ import localContainerQueriesImage from "../../img/container-queries.svg";
     linkTitle: "Example",
   }}
 >
-  <section class="container prose lg:prose-lg">
-    <h1 class="text-4xl">Container <em>Size</em> Queries</h1>
-    <p>
-      CSS container queries allow you to write styles that apply to the children
-      of a container element when that container matches certain media
-      conditions, typically a width measurement.
-    </p>
-    <p>
-      If, for example, a container has less space available in the surrounding
-      context, you can hide certain elements or use smaller fonts. Container
-      queries are an alternative to <a
-        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries"
-        rel="noopener noreferrer"
-        target="_blank">media queries</a
-      >, which apply styles to elements based on viewport size or other device
-      characteristics.
-    </p>
-    <img
-      src={localContainerQueriesImage.src}
-      alt="Container queries comparison against media queries"
-    />
-  </section>
-  <section class="container mt-4 lg:mt-8 pb-8 lg:pb-12 prose lg:prose-lg">
-    <h1 class="text-4xl">Container <em>Style</em> Queries</h1>
-    <p>
-      CSS container queries allow you to write styles that apply to the children
-      of a container element when that container matches certain media
-      conditions, typically a width measurement.
-    </p>
-    <p>
-      Style queries enable applying styles to elements based on a containing
-      element's style features. Any non-empty element can be a style query
-      container. Currently, the only style feature supported by style queries is
-      CSS <a
-        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"
-        rel="noopener noreferrer"
-        target="_blank">custom properties</a
-      >. In this case, the query returns true or false depending on the computed
-      value of the containing element's custom properties. When container style
-      queries are fully supported, they will enable you to apply styles to any
-      element's descendants based on any property, declaration, or computed
-      value — for example if the container is <code>display: flex;</code> or has
-      a non-transparent background color.
-    </p>
-  </section>
+  <div class="container prose lg:prose-lg space-y-4 lg:space-y-8">
+    <h1 class="text-5xl">Container Queries</h1>
+    <section>
+      <h2 class="text-4xl">Container <em>Size</em> Queries</h2>
+      <p>
+        CSS container queries allow you to write styles that apply to the
+        children of a container element when that container matches certain
+        media conditions, typically a width measurement.
+      </p>
+      <p>
+        If, for example, a container has less space available in the surrounding
+        context, you can hide certain elements or use smaller fonts. Container
+        queries are an alternative to <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries"
+          rel="noopener noreferrer"
+          target="_blank">media queries</a
+        >, which apply styles to elements based on viewport size or other device
+        characteristics.
+      </p>
+      <p>
+        To use container queries, you need to declare a containment context on
+        an element so that the browser knows you might want to query the
+        dimensions of this container later. To do this, use the <code
+          ><a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/container-type"
+            rel="noopener noreferrer"
+            target="_blank">container-type</a
+          ></code
+        > property with a value of <code>size</code>, <code>inline-size</code>,
+        or
+        <code>normal</code>.
+      </p>
+      <img
+        src={localContainerQueriesImage.src}
+        alt="Container queries comparison against media queries"
+      />
+    </section>
+    <section>
+      <h2 class="text-4xl">Container <em>Style</em> Queries</h2>
+      <p>
+        Style queries enable applying styles to elements based on a containing
+        element's style features. Any non-empty element can be a style query
+        container. Currently, the only style feature supported by style queries
+        is CSS <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"
+          rel="noopener noreferrer"
+          target="_blank">custom properties</a
+        >. In this case, the query returns true or false depending on the
+        computed value of the containing element's custom properties. When
+        container style queries are fully supported, they will enable you to
+        apply styles to any element's descendants based on any property,
+        declaration, or computed value — for example if the container is <code
+          >display: flex;</code
+        > or has a non-transparent background color.
+      </p>
+    </section>
+    <section>
+      <h2 class="text-4xl">Container Queries Length Units</h2>
+      <p>
+        When applying styles to a container using container queries, you can use
+        container query length units. These units specify a length relative to
+        the dimensions of a query container. Components that use units of length
+        relative to their container are more flexible to use in different
+        containers without having to recalculate concrete length values.
+      </p>
+      <p>The container query length units are:</p>
+      <ul>
+        <li><code>cqw</code>: 1% of a query container's width</li>
+        <li>
+          <code>cqh</code>: 1% of a query container's height <code>cqi</code>:
+          1% of a query container's inline size
+        </li>
+        <li><code>cqb</code>: 1% of a query container's block size</li>
+        <li>
+          <code>cqmin</code>: The smaller value of either <code>cqi</code> or <code
+            >cqb</code
+          >
+        </li>
+        <li>
+          <code>cqmax</code>: The larger value of either <code>cqi</code> or <code
+            >cqb</code
+          >
+        </li>
+      </ul>
+    </section>
+  </div>
 </Layout>

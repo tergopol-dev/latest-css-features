@@ -43,9 +43,8 @@ const {
     class:list={[
       "bg-slate-100 dark:bg-slate-800 overflow-y-scroll transition-colors",
       [
-        "prose-code:text-xs",
-        "md:prose-code:text-sm",
         "prose-headings:font-light",
+        "prose-headings:mt-0",
         "dark:prose-pre:bg-gray-900",
         "prose-headings:text-slate-400",
         "dark:prose-headings:text-slate-300",
@@ -53,6 +52,10 @@ const {
         "dark:prose-p:text-slate-400",
         "prose-a:text-slate-500",
         "dark:prose-a:text-slate-400",
+        "prose-ul:text-slate-600",
+        "dark:prose-ul:text-slate-400",
+        "prose-code:text-xs",
+        "md:prose-code:text-sm",
         "prose-code:bg-opacity-15",
         "prose-code:bg-slate-500",
         "prose-code:font-normal",
@@ -69,7 +72,10 @@ const {
     <header class="sticky top-0 z-10">
       <MainNav {...mainNavConfiguration} />
     </header>
-    <main class="pt-16 lg:pt-24" style={{ "view-transition-name": "main" }}>
+    <main
+      class="pt-16 lg:pt-24 pb-8 lg:pb-12"
+      style={{ "view-transition-name": "main" }}
+    >
       <slot />
     </main>
   </body>

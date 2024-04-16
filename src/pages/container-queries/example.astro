@@ -10,29 +10,100 @@ import Layout from "../../layouts/Layout.astro";
     linkTitle: "Back",
   }}
 >
-  <div
-    class="px-4 pb-8 lg:p-12 max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-12"
-  >
+  <div class="px-4 max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-12">
     <h1 class="text-4xl !mb-0">Container <em>Size</em> Queries Example</h1>
-    <div class="prose lg:row-start-2">
-      <pre><p>CSS</p><code is:raw>.subgrid {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
+    <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
+    <div class="prose grid lg:row-start-2">
+      <pre><p>CSS</p><code class="language-css" is:raw>.container-example {
+  container: container-example / inline-size;
+}
+
+.card-example__content {
+  font-size: 0.75rem;
+}
+
+@container container-example (min-inline-size: 200px) {
+  .card-example__title {
+    color: theme("colors.cyan.500");
+  }
+
+  .card-example__content {
+    font-size: 1rem;
+  }
 }</code></pre>
       <pre
-        class="mt-0"><p>HTML</p><code is:raw>&lt;div class="subgrid"&gt;HUEHUEHUE&lt;/div&gt;</code></pre>
+        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div class="container-example"&gt;
+  &lt;div
+    class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+  &gt;
+    &lt;p class="card-example__title font-semibold text-amber-500"&gt;
+      Card Title
+    &lt;/p&gt;
+    &lt;p class="card-example__content text-slate-400"&gt;
+      Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
     </div>
-    <section class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:row-start-2">
-      {
-        [...Array(6)].map((_, index) => {
-          return (
-            <div class="p-6 bg-slate-700 text-slate-300 aspect-square">
-              {index + 1}
-            </div>
-          );
-        })
-      }
+    <section
+      class="grid grid-cols-2 items-start lg:grid-cols-3 gap-4 lg:row-start-2"
+    >
+      <div class="container-example">
+        <div
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+        >
+          <p class="card-example__title font-semibold text-amber-500">
+            Card Title
+          </p>
+          <p class="card-example__content text-slate-400">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+          </p>
+        </div>
+      </div>
+      <div class="container-example">
+        <div
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+        >
+          <p class="card-example__title font-semibold text-amber-500">
+            Card Title
+          </p>
+          <p class="card-example__content text-slate-400">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+          </p>
+        </div>
+      </div>
+      <div class="container-example">
+        <div
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+        >
+          <p class="card-example__title font-semibold text-amber-500">
+            Card Title
+          </p>
+          <p class="card-example__content text-slate-400">
+            Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+          </p>
+        </div>
+      </div>
     </section>
   </div>
 </Layout>
+
+<style>
+  .container-example {
+    container: container-example / inline-size;
+  }
+
+  .card-example__content {
+    font-size: 0.75rem;
+  }
+
+  @container container-example (min-inline-size: 200px) {
+    .card-example__title {
+      color: theme("colors.cyan.500");
+    }
+
+    .card-example__content {
+      font-size: 1rem;
+    }
+  }
+</style>
