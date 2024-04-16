@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout
   title="HD's Round Table: Container Queries Example"
+  mainClassName="space-y-8 lg:space-y-12"
   mainNavConfiguration={{
     isBackLink: true,
     linkSource: "/container-queries",
@@ -14,33 +15,35 @@ import Layout from "../../layouts/Layout.astro";
     <h1 class="text-4xl !mb-0">Container <em>Size</em> Queries Example</h1>
     <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
     <div class="prose grid lg:row-start-2">
-      <pre><p>CSS</p><code class="language-css" is:raw>.container-example {
-  container: container-example / inline-size;
-}
+      <pre><p>CSS</p><code class="language-css" is:raw>.container-size-example {
+    container: container-size-example / inline-size;
 
-.card-example__content {
-  font-size: 0.75rem;
-}
-
-@container container-example (min-inline-size: 200px) {
-  .card-example__title {
-    color: theme("colors.cyan.500");
+    .card-example__content {
+      font-size: theme("fontSize.sm");
+    }
   }
 
-  .card-example__content {
-    font-size: 1rem;
-  }
+  @container container-size-example (min-inline-size: 200px) {
+    .container-size-example {
+      .card-example__title {
+        color: theme("colors.cyan.500");
+      }
+
+      .card-example__content {
+        font-size: theme("fontSize.base");
+      }
+    }
 }</code></pre>
       <pre
-        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div class="container-example"&gt;
+        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div class="container-size-example"&gt;
   &lt;div
     class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
   &gt;
     &lt;p class="card-example__title font-semibold text-amber-500"&gt;
-      Card Title
+      Lorem Ipsum
     &lt;/p&gt;
     &lt;p class="card-example__content text-slate-400"&gt;
-      Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+      Donec finibus nunc eu faucibus condimentum. Phasellus lobortis, tellus sit amet aliquam bibendum.
     &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -48,39 +51,140 @@ import Layout from "../../layouts/Layout.astro";
     <section
       class="grid grid-cols-2 items-start lg:grid-cols-3 gap-4 lg:row-start-2"
     >
-      <div class="container-example">
+      <div class="container-size-example">
         <div
           class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
         >
           <p class="card-example__title font-semibold text-amber-500">
-            Card Title
+            Lorem Ipsum
           </p>
           <p class="card-example__content text-slate-400">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
+            tellus sit amet aliquam bibendum.
           </p>
         </div>
       </div>
-      <div class="container-example">
+      <div class="container-size-example">
         <div
           class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
         >
           <p class="card-example__title font-semibold text-amber-500">
-            Card Title
+            Lorem Ipsum
           </p>
           <p class="card-example__content text-slate-400">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
+            tellus sit amet aliquam bibendum.
           </p>
         </div>
       </div>
-      <div class="container-example">
+      <div class="container-size-example">
         <div
           class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
         >
           <p class="card-example__title font-semibold text-amber-500">
-            Card Title
+            Lorem Ipsum
           </p>
           <p class="card-example__content text-slate-400">
-            Lorem ipsum dolor sit amet consectetur adipiscing elit curabitur.
+            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
+            tellus sit amet aliquam bibendum.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="px-4 max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-12">
+    <h1 class="text-4xl !mb-0">Container <em>Style</em> Queries Example</h1>
+    <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
+    <div class="prose grid lg:row-start-2">
+      <pre><p>CSS</p><code class="language-css" is:raw>.container-style-example {
+    container-name: container-style-example;
+
+    --variant: "primary";
+
+    &.variant--secondary {
+      --variant: "secondary";
+    }
+  }
+
+  @container container-style-example style(--variant: "secondary") {
+    .container-style-example {
+      .card-example {
+        background-color: theme("colors.gray.700");
+      }
+
+      .card-example__title {
+        color: theme("colors.cyan.500");
+
+        &::after {
+          background-color: theme("colors.gray.800");
+          border-radius: theme("borderRadius.DEFAULT");
+          content: "Secondary Variant";
+          display: block;
+          font-size: theme("fontSize.xs");
+          font-weight: theme("fontWeight.light");
+          margin-top: theme("margin.2");
+          padding: theme("padding.1") theme("padding.2");
+        }
+      }
+
+      .card-example__content {
+        font-weight: theme("fontWeight.light");
+      }
+    }
+}</code></pre>
+      <pre
+        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div class="container-style-example"&gt;
+  &lt;div
+    class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+  &gt;
+    &lt;p class="card-example__title font-semibold text-amber-500"&gt;
+      Lorem Ipsum
+    &lt;/p&gt;
+    &lt;p class="card-example__content text-slate-400"&gt;
+      Donec finibus nunc eu faucibus condimentum. Phasellus lobortis, tellus sit amet aliquam bibendum
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <section
+      class="grid grid-cols-2 items-start lg:grid-cols-3 gap-4 lg:row-start-2"
+    >
+      <div class="container-style-example">
+        <div
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+        >
+          <p class="card-example__title font-semibold text-amber-500">
+            Lorem Ipsum
+          </p>
+          <p class="card-example__content text-slate-400">
+            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
+            tellus sit amet aliquam bibendum.
+          </p>
+        </div>
+      </div>
+      <div class="container-style-example variant--secondary">
+        <div
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+        >
+          <p class="card-example__title font-semibold text-amber-500">
+            Lorem Ipsum
+          </p>
+          <p class="card-example__content text-slate-400">
+            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
+            tellus sit amet aliquam bibendum.
+          </p>
+        </div>
+      </div>
+      <div class="container-style-example">
+        <div
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+        >
+          <p class="card-example__title font-semibold text-amber-500">
+            Lorem Ipsum
+          </p>
+          <p class="card-example__content text-slate-400">
+            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
+            tellus sit amet aliquam bibendum.
           </p>
         </div>
       </div>
@@ -89,21 +193,62 @@ import Layout from "../../layouts/Layout.astro";
 </Layout>
 
 <style>
-  .container-example {
-    container: container-example / inline-size;
-  }
-
-  .card-example__content {
-    font-size: 0.75rem;
-  }
-
-  @container container-example (min-inline-size: 200px) {
-    .card-example__title {
-      color: theme("colors.cyan.500");
-    }
+  .container-size-example {
+    container: container-size-example / inline-size;
 
     .card-example__content {
-      font-size: 1rem;
+      font-size: theme("fontSize.sm");
+    }
+  }
+
+  @container container-size-example (min-inline-size: 200px) {
+    .container-size-example {
+      .card-example__title {
+        color: theme("colors.cyan.500");
+      }
+
+      .card-example__content {
+        font-size: theme("fontSize.base");
+      }
+    }
+  }
+</style>
+
+<style>
+  .container-style-example {
+    container-name: container-style-example;
+
+    --variant: "primary";
+
+    &.variant--secondary {
+      --variant: "secondary";
+    }
+  }
+
+  @container container-style-example style(--variant: "secondary") {
+    .container-style-example {
+      .card-example {
+        background-color: theme("colors.gray.700");
+      }
+
+      .card-example__title {
+        color: theme("colors.cyan.500");
+
+        &::after {
+          background-color: theme("colors.gray.800");
+          border-radius: theme("borderRadius.DEFAULT");
+          content: "Secondary Variant";
+          display: block;
+          font-size: theme("fontSize.xs");
+          font-weight: theme("fontWeight.light");
+          margin-top: theme("margin.2");
+          padding: theme("padding.1") theme("padding.2");
+        }
+      }
+
+      .card-example__content {
+        font-weight: theme("fontWeight.light");
+      }
     }
   }
 </style>

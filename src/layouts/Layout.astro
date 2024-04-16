@@ -8,6 +8,7 @@ import MainNav, {
 interface Props {
   bodyClassName?: string;
   description?: string;
+  mainClassName?: string;
   mainNavConfiguration?: MainNavProps;
   title: string;
 }
@@ -15,6 +16,7 @@ interface Props {
 const {
   bodyClassName,
   description = "Presentation showcasing the latest CSS features introduced in 2023 and early 2024, aimed at enhancing developers' proficiency in modern web design.",
+  mainClassName,
   mainNavConfiguration,
   title = "HD's Round Table: Latest CSS Features",
 } = Astro.props;
@@ -73,7 +75,7 @@ const {
       <MainNav {...mainNavConfiguration} />
     </header>
     <main
-      class="pt-16 lg:pt-24 pb-8 lg:pb-12"
+      class:list={["pt-16 lg:pt-24 pb-8 lg:pb-12", mainClassName]}
       style={{ "view-transition-name": "main" }}
     >
       <slot />
