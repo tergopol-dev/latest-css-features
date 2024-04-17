@@ -16,7 +16,7 @@ import Layout from "../../layouts/Layout.astro";
     <h1 class="text-4xl !mb-0">Cascade Layers Example</h1>
     <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
     <div class="prose grid lg:row-start-2">
-      <pre><p>CSS</p><code is:raw>@layer cascade-layers-example, cascade-layers-example-override;
+      <pre><p>CSS</p><code class="language-css" is:raw>@layer cascade-layers-example, cascade-layers-example-override;
 
 @layer cascade-layers-example {
   .cascade-layers-example p {

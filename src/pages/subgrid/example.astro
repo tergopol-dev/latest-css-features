@@ -16,7 +16,7 @@ import Layout from "../../layouts/Layout.astro";
     <h1 class="text-4xl !mb-0">Subgrid Example</h1>
     <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
     <div class="prose grid lg:row-start-2">
-      <pre><p>CSS</p><code is:raw>.card-container-subgrid-example {
+      <pre><p>CSS</p><code class="language-css" is:raw>.card-container-subgrid-example {
     display: grid;
     gap: theme("gap.4");
     grid-template-columns: repeat(2, minmax(0, 1fr));
