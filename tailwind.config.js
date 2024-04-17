@@ -22,6 +22,9 @@ export default {
       fontFamily: {
         display: ["Comic Neue", "sans-serif"],
       },
+      fontSize: {
+        inherit: "inherit",
+      },
       keyframes: {
         "hue-rotate": {
           from: {

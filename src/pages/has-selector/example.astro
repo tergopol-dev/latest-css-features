@@ -1,0 +1,77 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+  title="HD's Round Table: :has() Selector Example"
+  mainNavConfiguration={{
+    isBackLink: true,
+    linkSource: "/has-selector",
+    linkTitle: "Back",
+  }}
+>
+  <div
+    class="px-4 max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-12 items-start"
+  >
+    <h1 class="text-4xl !mb-0"><code>:has()</code> Selector Example</h1>
+    <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
+    <div class="prose grid lg:row-start-2">
+      <pre><p>CSS</p><code is:raw>@layer cascade-layers-example, cascade-layers-example-override;
+
+@layer cascade-layers-example {
+  .cascade-layers-example p {
+    background-color: theme("backgroundColor.slate.950");
+  }
+}
+
+@layer cascade-layers-example-override {
+  .cascade-layers-example .cascade-layers-example__content {
+    background-color: theme("backgroundColor.slate.700");
+  }
+}
+
+p {
+  background-color: initial;
+}</code></pre>
+      <pre
+        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div class="cascade-layers-example"&gt;
+    &lt;p class="cascade-layers-example__content"&gt;
+      &lt;code
+        &gt;div.cascade-layers-example &gt; p.cascade-layers-example__content&lt;/code
+      &gt;
+    &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <section class="lg:row-start-2 p-3">
+      <div class="cascade-layers-example">
+        <p
+          class="cascade-layers-example__content p-6 rounded border border-slate-300 dark:border-slate-700 border-opacity-50"
+        >
+          <code
+            >div.cascade-layers-example &gt; p.cascade-layers-example__content</code
+          >
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  @layer cascade-layers-example, cascade-layers-example-override;
+
+  @layer cascade-layers-example {
+    .cascade-layers-example p {
+      background-color: theme("backgroundColor.slate.950");
+    }
+  }
+
+  @layer cascade-layers-example-override {
+    .cascade-layers-example .cascade-layers-example__content {
+      background-color: theme("backgroundColor.slate.700");
+    }
+  }
+
+  p {
+    background-color: initial;
+  }
+</style>
