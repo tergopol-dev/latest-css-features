@@ -18,65 +18,78 @@ import localShockedMonkeyImage from "../../img/shocked-monkey-192.png";
     <h1 class="text-4xl !mb-0">Nesting Example</h1>
     <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
     <div class="prose grid lg:row-start-2">
-      <pre><p>CSS</p><code class="language-css" is:raw>.has-selector-example:has(.has-selector-example__image) {
-  border: theme("borderWidth.DEFAULT") solid theme("colors.cyan.500");
-}
+      <pre><p>CSS</p><code class="language-css" is:raw>.nesting-example {
+  #nestingExampleTitle,
+  .nesting-example__title,
+  [data-nesting-example="title"] {
+    /* Following selector is invalid. */
+    &--highlight {
+      color: theme("colors.cyan.500");
+    }
 
-.has-selector-example:has(.has-selector-example__image)
-  .has-selector-example__content {
-  color: theme("colors.cyan.500");
+    .nesting-example__title-highlight {
+      color: theme("colors.cyan.500");
+    }
+  }
+
+  .nesting-example__content {
+    color: theme("colors.cyan.500");
+  }
 }</code></pre>
       <pre
-        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div class="has-selector-example"&gt;
-  &lt;img
-    class="has-selector-example__image"
-    alt="A shocked monkey puppet."
-    loading="eager"
-    src="../../img/shocked-monkey-192.png"
-  /&gt;
-  &lt;p class="has-selector-example__content row-start-2"&gt;
-    I'm a card with a child &lt;code&gt;img&lt;/code&gt;.
+        class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;div
+  class="nesting-example"
+&gt;
+  &lt;p
+    id="nestingExampleTitle"
+    class="nesting-example__title"
+    data-nesting-example="title"
+  &gt;
+    &lt;span class="nesting-example__title-highlight"&gt;Lorem&lt;/span&gt; Ipsum
+  &lt;/p&gt;
+  &lt;p class="nesting-example__content"&gt;
+    Dolor sit amet consectetur adipiscing elit curabitur.
   &lt;/p&gt;
 &lt;/div&gt;</code></pre>
     </div>
-    <section class="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:row-start-2">
-      {
-        [...Array(3)].map((_, index) => (
-          <div class="has-selector-example grid gap-4 dark:bg-slate-700 p-4 rounded border border-slate-500 border-opacity-10 dark:border-opacity-15 grid-rows-subgrid row-span-2">
-            {index === 0 ? (
-              <Image
-                class="has-selector-example__image w-10 h-10"
-                alt="A shocked monkey puppet."
-                loading="eager"
-                src={localShockedMonkeyImage}
-              />
-            ) : (
-              <p class="font-semibold !text-cyan-500">Card Title</p>
-            )}
-
-            {index === 0 ? (
-              <p class="has-selector-example__content row-start-2">
-                I'm a card with a child <code>img</code>.
-              </p>
-            ) : (
-              <p class="has-selector-example__content row-start-2">
-                I'm the exact same card without a child <code>img</code>.
-              </p>
-            )}
-          </div>
-        ))
-      }
+    <section class="lg:row-start-2">
+      <div
+        class="nesting-example grid gap-4 dark:bg-slate-700 p-4 rounded
+      border border-slate-500 border-opacity-10 dark:border-opacity-15
+      grid-rows-subgrid row-span-2"
+      >
+        <p
+          id="nestingExampleTitle"
+          class="nesting-example__title font-semibold"
+          data-nesting-example="title"
+        >
+          <span class="nesting-example__title-highlight">Lorem</span> Ipsum
+        </p>
+        <p class="nesting-example__content">
+          Dolor sit amet consectetur adipiscing elit curabitur.
+        </p>
+      </div>
     </section>
   </div>
 </Layout>
 
 <style>
-  .has-selector-example:has(.has-selector-example__image) {
-    border: theme("borderWidth.DEFAULT") solid theme("colors.cyan.500");
-  }
+  .nesting-example {
+    #nestingExampleTitle,
+    .nesting-example__title,
+    [data-nesting-example="title"] {
+      /* Following selector is invalid. */
+      &--highlight {
+        color: theme("colors.cyan.500");
+      }
 
-  .has-selector-example:has(.has-selector-example__image)
-    .has-selector-example__content {
-    color: theme("colors.cyan.500");
+      .nesting-example__title-highlight {
+        color: theme("colors.cyan.500");
+      }
+    }
+
+    .nesting-example__content {
+      color: theme("colors.cyan.500");
+    }
   }
 </style>

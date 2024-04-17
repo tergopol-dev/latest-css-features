@@ -12,44 +12,37 @@ import Layout from "../../layouts/Layout.astro";
   <section class="container prose lg:prose-lg">
     <h1 class="text-4xl">Nesting</h1>
     <p>
-      The CSS nesting module defines a syntax for nesting selectors, providing
-      the ability to nest one style rule inside another, with the selector of
-      the child rule relative to the selector of the parent rule. CSS nesting is
-      different from CSS preprocessors such as <a
+      The CSS nesting module introduces a syntax for nesting selectors, allowing
+      one style rule to be nested inside another, with the child rule's selector
+      relative to the parent rule's selector. CSS nesting is different from CSS
+      preprocessors like <a
         href="https://sass-lang.com/"
         rel="noopener noreferrer"
         target="_blank">Sass</a
-      > in that it is parsed by the browser rather than being pre-compiled by a CSS
+      > because it is parsed by the browser instead of being pre-compiled by a CSS
       preprocessor.
     </p>
     <p>
-      The <code>:has()</code> pseudo-class inherits the specificity of the most specific
-      selector in its arguments, similar to <a
+      The CSS <code>&</code> nesting selector explicitly defines the relationship
+      between parent and child rules when using <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting"
+        rel="noopener noreferrer"
+        target="_blank">CSS nesting</a
+      >. It makes the nested child rule selectors relative to the parent
+      element. The child rule selectors have the same
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity"
+        rel="noopener noreferrer"
+        target="_blank">specificity</a
+      > weight as if they were within <a
         href="https://developer.mozilla.org/en-US/docs/Web/CSS/:is"
         rel="noopener noreferrer"
         target="_blank"><code>:is()</code></a
-      > and <a
-        href="https://developer.mozilla.org/en-US/docs/Web/CSS/:not"
-        rel="noopener noreferrer"
-        target="_blank"><code>:not()</code></a
-      >.
-    </p>
-    <p>
-      It cannot be nested within another <code>:has()</code> selector. This is because
-      pseudo-elements often depend on the styling of their ancestors, and allowing
-      them to be queried by <code>:has()</code> could lead to cyclic querying. Pseudo-elements
-      are also not valid selectors within <code>:has()</code>, and
-      pseudo-elements cannot be used as anchors for <code>:has()</code>.
-    </p>
-    <p>
-      When using comma-separated values inside the <code>:has()</code> selector,
-      you are checking if any of the parameters exist. <code>x:has(a, b)</code> will
-      style x if descendant a OR b exists. By chaining multiple <code
-        >:has()</code
-      > selectors together, you are checking if all of the parameters exist. <code
-        >x:has(a):has(b)</code
-      >
-      will style x if descendant a AND b exist.
+      >. Many CSS class naming conventions rely on nesting to concatenate or
+      append selectors as if they were strings (e.g., <code is:raw
+        >&--modifier { ... }</code
+      >). However, this does not work in CSS nesting because the selectors are
+      not treated as strings; they are treated as object references.
     </p>
   </section>
 </Layout>
