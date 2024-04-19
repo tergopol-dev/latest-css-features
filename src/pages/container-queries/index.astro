@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import localContainerQueriesImage from "../../img/container-queries.svg";
 ---
@@ -42,9 +43,9 @@ import localContainerQueriesImage from "../../img/container-queries.svg";
         or
         <code>normal</code>.
       </p>
-      <img
-        src={localContainerQueriesImage.src}
+      <Image
         alt="Container queries comparison against media queries"
+        src={localContainerQueriesImage}
       />
     </section>
     <section>

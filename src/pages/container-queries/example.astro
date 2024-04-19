@@ -53,45 +53,24 @@ import Layout from "../../layouts/Layout.astro";
     <section
       class="grid grid-cols-2 items-start lg:grid-cols-3 gap-4 lg:row-start-2"
     >
-      <div class="container-size-example">
-        <div
-          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
-        >
-          <p class="card-example__title font-semibold text-amber-500">
-            Lorem Ipsum
-          </p>
-          <p class="card-example__content text-slate-400">
-            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
-            tellus sit amet aliquam bibendum.
-          </p>
-        </div>
-      </div>
-      <div class="container-size-example">
-        <div
-          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
-        >
-          <p class="card-example__title font-semibold text-amber-500">
-            Lorem Ipsum
-          </p>
-          <p class="card-example__content text-slate-400">
-            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
-            tellus sit amet aliquam bibendum.
-          </p>
-        </div>
-      </div>
-      <div class="container-size-example">
-        <div
-          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
-        >
-          <p class="card-example__title font-semibold text-amber-500">
-            Lorem Ipsum
-          </p>
-          <p class="card-example__content text-slate-400">
-            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
-            tellus sit amet aliquam bibendum.
-          </p>
-        </div>
-      </div>
+      {
+        [...Array(3)].map(() => {
+          // TODO: Abstract these cards into components to be reused in all examples.
+          return (
+            <div class="container-size-example">
+              <div class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-slate-800 border-opacity-50 rounded">
+                <p class="card-example__title font-semibold text-amber-500">
+                  Lorem Ipsum
+                </p>
+                <p class="card-example__content text-slate-400">
+                  Donec finibus nunc eu faucibus condimentum. Phasellus
+                  lobortis, tellus sit amet aliquam bibendum.
+                </p>
+              </div>
+            </div>
+          );
+        })
+      }
     </section>
   </div>
   <div
@@ -105,7 +84,7 @@ import Layout from "../../layouts/Layout.astro";
 
     --variant: "primary";
 
-    &.variant--secondary {
+    &:nth-child(even) {
       --variant: "secondary";
     }
   }
@@ -153,45 +132,23 @@ import Layout from "../../layouts/Layout.astro";
     <section
       class="grid grid-cols-2 items-start lg:grid-cols-3 gap-4 lg:row-start-2"
     >
-      <div class="container-style-example">
-        <div
-          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
-        >
-          <p class="card-example__title font-semibold text-amber-500">
-            Lorem Ipsum
-          </p>
-          <p class="card-example__content text-slate-400">
-            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
-            tellus sit amet aliquam bibendum.
-          </p>
-        </div>
-      </div>
-      <div class="container-style-example variant--secondary">
-        <div
-          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
-        >
-          <p class="card-example__title font-semibold text-amber-500">
-            Lorem Ipsum
-          </p>
-          <p class="card-example__content text-slate-400">
-            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
-            tellus sit amet aliquam bibendum.
-          </p>
-        </div>
-      </div>
-      <div class="container-style-example">
-        <div
-          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
-        >
-          <p class="card-example__title font-semibold text-amber-500">
-            Lorem Ipsum
-          </p>
-          <p class="card-example__content text-slate-400">
-            Donec finibus nunc eu faucibus condimentum. Phasellus lobortis,
-            tellus sit amet aliquam bibendum.
-          </p>
-        </div>
-      </div>
+      {
+        [...Array(3)].map(() => {
+          return (
+            <div class="container-style-example">
+              <div class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-slate-800 border-opacity-50 rounded">
+                <p class="card-example__title font-semibold text-amber-500">
+                  Lorem Ipsum
+                </p>
+                <p class="card-example__content text-slate-400">
+                  Donec finibus nunc eu faucibus condimentum. Phasellus
+                  lobortis, tellus sit amet aliquam bibendum.
+                </p>
+              </div>
+            </div>
+          );
+        })
+      }
     </section>
   </div>
   <div
@@ -230,7 +187,7 @@ import Layout from "../../layouts/Layout.astro";
     <section class="lg:row-start-2">
       <div class="container-units-example">
         <div
-          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-700 rounded"
+          class="card-example not-prose flex flex-col gap-2 p-6 bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-slate-800 border-opacity-50 rounded"
         >
           <p class="card-example__title font-semibold text-amber-500">
             Lorem Ipsum
@@ -273,7 +230,7 @@ import Layout from "../../layouts/Layout.astro";
 
     --variant: "primary";
 
-    &.variant--secondary {
+    &:nth-child(even) {
       --variant: "secondary";
     }
   }

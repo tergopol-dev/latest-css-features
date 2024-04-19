@@ -23,9 +23,8 @@ const ThemeSelector: FunctionComponent<Props> = ({ className }) => {
         className,
       )}
       onClick={() => {
-        const activeThemeValue = localStorage.getItem("theme");
-
-        activeTheme.value = activeThemeValue === "light" ? "dark" : "light";
+        activeTheme.value =
+          localStorage.getItem("theme") === "light" ? "dark" : "light";
 
         localStorage.setItem("theme", activeTheme.value);
 
