@@ -3,17 +3,17 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout
-  title="HD's Round Table: Nesting Example"
+  title="HD's Round Table: CSS Nesting Example"
   mainNavConfiguration={{
     isBackLink: true,
-    linkSource: "/nesting",
+    linkSource: "/css-nesting",
     linkTitle: "Back",
   }}
 >
   <div
     class="px-4 max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-12 items-start"
   >
-    <h1 class="text-4xl !mb-0">Nesting Example</h1>
+    <h1 class="text-4xl !mb-0">CSS Nesting Example</h1>
     <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
     <div class="prose grid lg:row-start-2">
       <pre><p>CSS</p><code class="language-css" is:raw>.nesting-example {

@@ -6,11 +6,31 @@ import Layout from "../../layouts/Layout.astro";
   <section class="container prose lg:prose-lg">
     <h1 class="text-4xl">Table of Contents</h1>
     <ol>
-      <li><a href="/container-queries">Container Queries</a></li>
-      <li><a href="/cascade-layers">Cascade Layers</a></li>
-      <li><a href="/subgrid">Subgrid</a></li>
-      <li><a href="/has-selector">The <code>:has()</code> Selector</a></li>
-      <li><a href="/nesting">CSS Nesting</a></li>
+      <li>
+        <a href="/container-queries">Container Queries</a><a
+          aria-label="Go to Container Queries resources"
+          href="#container-queries"></a>
+      </li>
+      <li>
+        <a href="/cascade-layers">Cascade Layers</a><a
+          aria-label="Go to Cascade Layers resources"
+          href="#cascade-layers"></a>
+      </li>
+      <li>
+        <a href="/subgrid">Subgrid</a><a
+          aria-label="Go to Subgrid resources"
+          href="#subgrid"></a>
+      </li>
+      <li>
+        <a href="/has-selector">The <code>:has()</code> Selector</a><a
+          aria-label="Go to The :has() Selector resources"
+          href="#has-selector"></a>
+      </li>
+      <li>
+        <a href="/css-nesting">CSS Nesting</a><a
+          aria-label="Go to CSS Nesting resources"
+          href="#css-nesting"></a>
+      </li>
     </ol>
     <h2 class="cursor-wait select-none">
       <span class="line-through opacity-15">Bonus Content</span>
@@ -29,7 +49,7 @@ import Layout from "../../layouts/Layout.astro";
       <li><a href="/scroll-driven-animations">Scroll-driven Animations</a></li>
     </ul>
     <h3>Resource List</h3>
-    <h4>Container Queries</h4>
+    <h4 id="container-queries">Container Queries</h4>
     <ul>
       <li>
         <a
@@ -77,8 +97,17 @@ import Layout from "../../layouts/Layout.astro";
         >
       </li>
     </ul>
-    <h4>Cascade Layers</h4>
+    <h4 id="cascade-layers">Cascade Layers</h4>
     <ul>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_layers"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          MDN - Cascade Layers
+        </a>
+      </li>
       <li>
         <a
           href="https://css-tricks.com/css-cascade-layers/"
@@ -96,7 +125,7 @@ import Layout from "../../layouts/Layout.astro";
         >
       </li>
     </ul>
-    <h4>Subgrid</h4>
+    <h4 id="subgrid">Subgrid</h4>
     <ul>
       <li>
         <a
@@ -144,8 +173,15 @@ import Layout from "../../layouts/Layout.astro";
         >
       </li>
     </ul>
-    <h4>The <code>:has()</code> Selector</h4>
+    <h4 id="has-selector">The <code>:has()</code> Selector</h4>
     <ul>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has"
+          rel="noopener noreferrer"
+          target="_blank">MDN - <code>:has()</code></a
+        >
+      </li>
       <li>
         <a
           href="https://developer.chrome.com/blog/whats-new-css-ui-2023#has"
@@ -164,7 +200,7 @@ import Layout from "../../layouts/Layout.astro";
         >
       </li>
     </ul>
-    <h4>CSS Nesting</h4>
+    <h4 id="css-nesting">CSS Nesting</h4>
     <ul>
       <li>
         <a
