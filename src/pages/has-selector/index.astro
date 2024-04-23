@@ -2,6 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
+<!-- TODO: Add toggle component to show Can I Use embed on demand and load script dynamically to improve performance. -->
+<script
+  src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"
+></script>
+
 <Layout
   title="HD's Round Table: The :has() Selector"
   mainNavConfiguration={{
@@ -11,6 +16,17 @@ import Layout from "../../layouts/Layout.astro";
 >
   <section class="container prose lg:prose-lg">
     <h1 class="text-4xl">The <code>:has()</code> Selector</h1>
+    <p
+      class="ciu_embed"
+      data-feature="mdn-css__selectors__has"
+      data-periods="future_1,current,past_1,past_2"
+      data-accessible-colours="false"
+    >
+      <p>
+        Data on support for the mdn-css__selectors__has feature across the major
+        browsers
+      </p>
+    </p>
     <p>
       The CSS <code>:has()</code> selector allows you to select elements that contain
       elements matching the selector you pass into the <code>:has()</code> function.

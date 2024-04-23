@@ -4,6 +4,11 @@ import Layout from "../../layouts/Layout.astro";
 import localContainerQueriesImage from "../../img/container-queries.svg";
 ---
 
+<!-- TODO: Add toggle component to show Can I Use embed on demand and load script dynamically to improve performance. -->
+<script
+  src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"
+></script>
+
 <Layout
   title="HD's Round Table: Container Queries"
   mainNavConfiguration={{
@@ -15,6 +20,27 @@ import localContainerQueriesImage from "../../img/container-queries.svg";
     <h1 class="text-5xl">Container Queries</h1>
     <section>
       <h2 class="text-4xl">Container <em>Size</em> Queries</h2>
+      <p
+        class="ciu_embed"
+        data-feature="css-container-queries"
+        data-periods="future_1,current,past_1,past_2"
+        data-accessible-colours="false"
+      >
+        <picture>
+          <source
+            type="image/webp"
+            srcset="https://caniuse.bitsofco.de/image/css-container-queries.webp"
+          />
+          <source
+            type="image/png"
+            srcset="https://caniuse.bitsofco.de/image/css-container-queries.png"
+          />
+          <img
+            src="https://caniuse.bitsofco.de/image/css-container-queries.jpg"
+            alt="Data on support for the css-container-queries feature across the major browsers from caniuse.com"
+          />
+        </picture>
+      </p>
       <p>
         CSS container queries allow you to write styles that apply to the
         children of a container element when that container matches certain
@@ -50,6 +76,27 @@ import localContainerQueriesImage from "../../img/container-queries.svg";
     </section>
     <section>
       <h2 class="text-4xl">Container <em>Style</em> Queries</h2>
+      <p
+        class="ciu_embed"
+        data-feature="css-container-queries-style"
+        data-periods="future_1,current,past_1,past_2"
+        data-accessible-colours="false"
+      >
+        <picture>
+          <source
+            type="image/webp"
+            srcset="https://caniuse.bitsofco.de/image/css-container-queries-style.webp"
+          />
+          <source
+            type="image/png"
+            srcset="https://caniuse.bitsofco.de/image/css-container-queries-style.png"
+          />
+          <img
+            src="https://caniuse.bitsofco.de/image/css-container-queries-style.jpg"
+            alt="Data on support for the css-container-queries-style feature across the major browsers from caniuse.com"
+          />
+        </picture>
+      </p>
       <p>
         Style queries enable applying styles to elements based on a containing
         element's style features. Any non-empty element can be a style query
@@ -69,6 +116,27 @@ import localContainerQueriesImage from "../../img/container-queries.svg";
     </section>
     <section>
       <h2 class="text-4xl">Container Queries Length Units</h2>
+      <p
+        class="ciu_embed"
+        data-feature="css-container-query-units"
+        data-periods="future_1,current,past_1,past_2"
+        data-accessible-colours="false"
+      >
+        <picture>
+          <source
+            type="image/webp"
+            srcset="https://caniuse.bitsofco.de/image/css-container-query-units.webp"
+          />
+          <source
+            type="image/png"
+            srcset="https://caniuse.bitsofco.de/image/css-container-query-units.png"
+          />
+          <img
+            src="https://caniuse.bitsofco.de/image/css-container-query-units.jpg"
+            alt="Data on support for the css-container-query-units feature across the major browsers from caniuse.com"
+          />
+        </picture>
+      </p>
       <p>
         When applying styles to a container using container queries, you can use
         container query length units. These units specify a length relative to

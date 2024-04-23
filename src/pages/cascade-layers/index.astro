@@ -2,6 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
+<!-- TODO: Add toggle component to show Can I Use embed on demand and load script dynamically to improve performance. -->
+<script
+  src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"
+></script>
+
 <Layout
   title="HD's Round Table: Cascade Layers"
   mainNavConfiguration={{
@@ -11,6 +16,27 @@ import Layout from "../../layouts/Layout.astro";
 >
   <section class="container prose lg:prose-lg">
     <h1 class="text-4xl">Cascade Layers</h1>
+    <p
+      class="ciu_embed"
+      data-feature="css-cascade-layers"
+      data-periods="future_1,current,past_1,past_2"
+      data-accessible-colours="false"
+    >
+      <picture>
+        <source
+          type="image/webp"
+          srcset="https://caniuse.bitsofco.de/image/css-cascade-layers.webp"
+        />
+        <source
+          type="image/png"
+          srcset="https://caniuse.bitsofco.de/image/css-cascade-layers.png"
+        />
+        <img
+          src="https://caniuse.bitsofco.de/image/css-cascade-layers.jpg"
+          alt="Data on support for the css-cascade-layers feature across the major browsers from caniuse.com"
+        />
+      </picture>
+    </p>
     <p>
       CSS specificity is the mechanism by which CSS determines which styles to
       apply to elements. The specificity of a style rule is determined by the

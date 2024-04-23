@@ -2,6 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
+<!-- TODO: Add toggle component to show Can I Use embed on demand and load script dynamically to improve performance. -->
+<script
+  src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/public/caniuse-embed.min.js"
+></script>
+
 <Layout
   title="HD's Round Table: Nesting"
   mainNavConfiguration={{
@@ -11,6 +16,27 @@ import Layout from "../../layouts/Layout.astro";
 >
   <section class="container prose lg:prose-lg">
     <h1 class="text-4xl">Nesting</h1>
+    <p
+      class="ciu_embed"
+      data-feature="css-nesting"
+      data-periods="future_1,current,past_1,past_2"
+      data-accessible-colours="false"
+    >
+      <picture>
+        <source
+          type="image/webp"
+          srcset="https://caniuse.bitsofco.de/image/css-nesting.webp"
+        />
+        <source
+          type="image/png"
+          srcset="https://caniuse.bitsofco.de/image/css-nesting.png"
+        />
+        <img
+          src="https://caniuse.bitsofco.de/image/css-nesting.jpg"
+          alt="Data on support for the css-nesting feature across the major browsers from caniuse.com"
+        />
+      </picture>
+    </p>
     <p>
       The CSS nesting module introduces a syntax for nesting selectors, allowing
       one style rule to be nested inside another, with the child rule's selector
