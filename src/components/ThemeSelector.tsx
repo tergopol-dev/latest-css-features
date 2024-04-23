@@ -10,12 +10,11 @@ export interface Props {
   className?: string;
 }
 
-const activeTheme: Signal<Theme> = signal("light");
+const LOCAL_STORAGE_KEY_THEME = "theme";
+
+const activeTheme: Signal<Theme> = signal(getLocalStorageThemeValue());
 
 const ThemeSelector: FunctionComponent<Props> = ({ className }) => {
-  activeTheme.value =
-    localStorage.getItem("theme") === "dark" ? "dark" : "light";
-
   return (
     <button
       className={clsx(
@@ -24,11 +23,9 @@ const ThemeSelector: FunctionComponent<Props> = ({ className }) => {
       )}
       onClick={() => {
         activeTheme.value =
-          localStorage.getItem("theme") === "light" ? "dark" : "light";
+          getLocalStorageThemeValue() === "light" ? "dark" : "light";
 
-        localStorage.setItem("theme", activeTheme.value);
-
-        document.documentElement.classList.toggle("dark");
+        setThemeStorage({ activeThemeValue: activeTheme.value });
       }}
       type="button"
     >
@@ -45,14 +42,40 @@ const ThemeSelector: FunctionComponent<Props> = ({ className }) => {
 
 export default ThemeSelector;
 
-export const handleThemeStorage = () => {
-  if (
-    localStorage.theme === "dark" ||
-    (!("theme" in localStorage) &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches)
-  ) {
+/**
+ * Sets the theme value in the local storage and applies the theme to the document.
+ * If `activeThemeValue` is provided, it will be used as the theme value.
+ * If `activeThemeValue` is not provided, the theme value will be retrieved from the local storage.
+ * If neither the local storage nor the active theme value is set, a default value based on the user's preferred color scheme will be used.
+ * @param {Object} options - The options object.
+ * @param {Theme} options.activeThemeValue - The active theme value.
+ */
+export function setThemeStorage({
+  activeThemeValue,
+}: {
+  activeThemeValue?: Theme;
+} = {}) {
+  const localStorageThemeValue = getLocalStorageThemeValue();
+  const themeValue = activeThemeValue || localStorageThemeValue;
+
+  if (!themeValue) {
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY_THEME,
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light",
+    );
+  } else {
+    localStorage.setItem(LOCAL_STORAGE_KEY_THEME, themeValue);
+  }
+
+  if (themeValue === "dark") {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
   }
-};
+}
+
+export function getLocalStorageThemeValue(): Theme {
+  return localStorage.getItem(LOCAL_STORAGE_KEY_THEME) as Theme;
+}

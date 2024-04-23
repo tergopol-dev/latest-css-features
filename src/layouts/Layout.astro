@@ -24,14 +24,14 @@ const {
 
 <script>
   import hljs from "highlight.js";
-  import { handleThemeStorage } from "../components/ThemeSelector";
+  import { setThemeStorage } from "../components/ThemeSelector";
 
   hljs.highlightAll();
 
-  handleThemeStorage();
+  setThemeStorage();
 </script>
 
-<html class="dark" lang="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />

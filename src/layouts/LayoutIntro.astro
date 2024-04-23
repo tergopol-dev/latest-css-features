@@ -14,7 +14,12 @@ const {
 } = Astro.props;
 ---
 
-<!doctype html>
+<script>
+  import { setThemeStorage } from "../components/ThemeSelector";
+
+  setThemeStorage();
+</script>
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
