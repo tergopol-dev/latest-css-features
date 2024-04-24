@@ -2,6 +2,31 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
+<script>
+  const anchorLinkList = document.querySelectorAll('a[href^="#"]');
+
+  anchorLinkList.forEach((anchorLink) => {
+    anchorLink.addEventListener("click", ($event) => {
+      $event.preventDefault();
+
+      const scrollTargetID = anchorLink.getAttribute("href")?.slice(1);
+      const targetElement = document.getElementById(scrollTargetID || "");
+
+      if (targetElement) {
+        const mainNavHeight = document
+          .querySelector(".main-nav")
+          ?.getBoundingClientRect()?.height;
+
+        window.scrollTo({
+          behavior: "smooth",
+          top:
+            targetElement.offsetTop - (mainNavHeight ? mainNavHeight + 8 : 0),
+        });
+      }
+    });
+  });
+</script>
+
 <Layout title="HD's Round Table: Table of Contents">
   <section class="container prose lg:prose-lg">
     <h1 class="text-4xl">Table of Contents</h1>
