@@ -17,16 +17,20 @@ import Layout from "../../layouts/Layout.astro";
     <!-- Using "grid" class along with "prose" class to fix pre wrapping issue on mobile. GitHub Issue: https://github.com/tailwindlabs/tailwindcss-typography/issues/96#issuecomment-1017139288 -->
     <div class="prose grid lg:row-start-2">
       <pre><p>CSS</p><code class="language-css" is:raw>.card-container-subgrid-example {
-    display: grid;
-    gap: theme("gap.4");
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  display: grid;
+  gap: theme("gap.4");
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  .card-subgrid-example {
-    display: grid;
-    gap: theme("gap.5");
-    grid-row: span 3;
-    grid-template-rows: subgrid;
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card-subgrid-example {
+  display: grid;
+  gap: theme("gap.5");
+  grid-row: span 3;
+  grid-template-rows: subgrid;
 }</code></pre>
       <pre
         class="mt-0"><p>HTML</p><code class="language-html" is:raw>&lt;section class="card-container-subgrid-example"&gt;
@@ -89,6 +93,33 @@ import Layout from "../../layouts/Layout.astro";
 </Layout>
 
 <style>
+  /* Creates 2 columns; each column is exactly 1fr */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .grid-item {
+    width: 200px;
+    height: 200px;
+
+    padding: 2rem;
+  }
+
+  /* Creates 2 columns; each column can be between 0 and 1fr */
+  .flexible-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .flexible-grid-item {
+    width: 200px;
+    height: 200px;
+    padding: 2rem;
+  }
+
   .card-container-subgrid-example {
     display: grid;
     gap: theme("gap.4");
